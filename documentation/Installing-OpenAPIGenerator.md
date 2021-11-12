@@ -1,4 +1,4 @@
-#Installing OpenAPI Generator Client
+# Installing OpenAPI Generator Client
 
 We'll be installing the OpenAPI Generator client from: https://github.com/openapitools/openapi-generator-cli
 
