@@ -61,20 +61,20 @@ paths:
               examples:
                 MyInfo:
                   value:
-                    your_name: "Your Name"
-                    your_age: 22
-                    your_age_in_months: "264 Months"
-                    your_nationality: "Geek"
-                    countries_you_visited:
+                    name: "Your Name"
+                    age: 22
+                    age_in_months: "264 Months"
+                    nationality: "Geek"
+                    visited_countries:
                       - "Japan"
                       - "Australia"
                 ExtraTerrestrialInfo:
                   value:
-                    your_name: "Aayala"
-                    your_age: 4827
-                    your_age_in_months: "57.924 Months"
-                    your_nationality: "Venusian"
-                    countries_you_visited:
+                    name: "Aayala"
+                    age: 4827
+                    age_in_months: "57.924 Months"
+                    nationality: "Venusian"
+                    visited_countries:
                       - "USA, Earth"
           description: 200 response
       summary: List My Info
@@ -248,11 +248,11 @@ And add the following method after handleRequest
 
 ```js
 static populatePayLoad(request, serviceResponse){
-    serviceResponse.payload.personDetails.your_name = request.body.name;
-    serviceResponse.payload.personDetails.your_age = request.body.age;
-    serviceResponse.payload.personDetails.your_age_years_in_months = request.body.age * 12;
-    serviceResponse.payload.personDetails.your_nationality = request.body.nationality;
-    serviceResponse.payload.personDetails.countries_you_visited = request.body.visited_countries;
+    serviceResponse.payload.personDetails.name = request.body.name;
+    serviceResponse.payload.personDetails.age = request.body.age;
+    serviceResponse.payload.personDetails.age_years_in_months = request.body.age * 12;
+    serviceResponse.payload.personDetails.nationality = request.body.nationality;
+    serviceResponse.payload.personDetails.visited_countries = request.body.visited_countries;
 }
 ```
 
