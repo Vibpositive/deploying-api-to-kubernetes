@@ -295,3 +295,8 @@ curl -X GET \
   -d '{"name": "YOURNAME","age": 20,"nationality": "Martian","visited_countries": ["USA, Earth"]}' \
   "http://localhost:8080/myinfo"
 ```
+
+### Sending requests from Postman
+
+When sending requests from Postman, add the following header:
+KEY: Content-Type, VALUE: application/json
