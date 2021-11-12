@@ -4,17 +4,17 @@
 
 Please follow this in order
 
-- 1. [Installing NodeJs](documentationnstalling-NodeJS.md)
-- 2. [Login to Docker Hub](documentationogging-in-to-Docker-hub.md)
-- 3. [Kubernetes Environment](documentationocal-Kubernetes.md)
-- 4. [OpenAPI Generator](documentationnstalling-OpenAPIGenerator.md)
-- 5. [Installing Postman](documentationnstalling-Postman.md)
+- 1. [Installing NodeJs](documentation/Installing-NodeJS.md)
+- 2. [Login to Docker Hub](documentation/Logging-in-to-Docker-hub.md)
+- 3. [Kubernetes Environment](documentation/Local-Kubernetes.md)
+- 4. [OpenAPI Generator](documentation/Installing-OpenAPIGenerator.md)
+- 5. [Installing Postman](documentation/Installing-Postman.md)
 ***
 
 ## Goals
 
 - [OpenAPI specification file](#OpenAPI-specification-file)
-- [Generating an API Using the OpenAPI generator client](#Generating-and-API-Using-the-OpenAPI-generator-client)
+- [Generating an API Using the OpenAPI generator client](#Generating-an-API-Using-the-OpenAPI-generator-client)
 - [Building a Docker image with generated API](#Building-a-Docker-image-with-generated-API)
 - [Deploying your API into Kubernetes](#Deploying-your-API-into-Kubernetes)
 - [Changing the Default API Response](#Changing the Default API Response)
