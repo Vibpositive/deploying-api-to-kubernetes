@@ -26,4 +26,14 @@ concepts of the following:
 
 ### Diagram
 
-![Diagram](../images/diagram.png "Diagram")
+Current
+
+![Current Diagram](../images/diagram.png "Diagram")
+
+ReplicaSet
+
+![ReplicaSet Diagram](../images/replica_set.png "ReplicaSet Diagram")
+
+Deployment
+
+![Deployment Diagram](../images/deployment.png "Deployment Diagram")
