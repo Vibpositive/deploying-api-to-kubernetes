@@ -29,14 +29,12 @@ spec:
     matchLabels:
       app: nodejs
   template:
-
-
     metadata:
      labels:
         app: nodejs
     spec:
       containers:
-      - image: vibpositive/my_first_gabriel_oliveira_microservice:1.0.3
+      - image: vibpositive/my_fist_gabriel_oliveira_microservice:1.0.3
         name: nginx
         ports:
         - containerPort: 8080
@@ -72,7 +70,7 @@ metadata:
   labels: 
     app: alpine-nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: nodejs
@@ -91,18 +89,18 @@ spec:
               'serviceapi.api.svc.cluster.local/myinfo' \
               -H 'accept: application/json' \
               -H 'Content-Type: application/json' \
-              -d @/opt/SBA/scripts/request.json >> /html/index.html && sleep 5;
+              -d @/opt/SBA/request.json >> /html/index.html && sleep 5;
           done"
         name: alpine
         volumeMounts:
         - mountPath: /html
           name: html-volume
         - mountPath: /opt/SBA/scripts/
-          name: json-request
+          name: my-config-map
         resources:
           requests:
             memory: "64Mi"
-            cpu: "50m"
+            cpu: "8"
           limits:
             memory: "128Mi"
             cpu: "500m"
@@ -117,10 +115,10 @@ spec:
         resources:
           requests:
             memory: "64Mi"
-            cpu: "50m"
+            cpu: "4"
           limits:
             memory: "128Mi"
-            cpu: "500m"
+            cpu: "4"
 
       volumes:
       - name: html-volume
@@ -138,11 +136,12 @@ metadata:
   namespace: api
 spec:
   selector:
-    app: nodejs
+    app: some-app
   type: ClusterIP
   ports:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8080
+      # TODO: need to check if this fails, as port does not exist in container
+      targetPort: 9090
 
