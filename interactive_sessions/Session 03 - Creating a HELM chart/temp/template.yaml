@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: htmlpod
+  namespace: default
+  labels: 
+    micro : services
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+     labels:
+        app: nginx
+    spec:
+      containers:
+      - image: vibpositive/my_first_gabriel_oliveira_microservice:1.0.3
+        name: nginx
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - image: byrnedo/alpine-curl
+    command:
+    - /bin/sh
+    - "-c"
+    - "while true; do curl -X 'GET' \
+      'my-service/myinfo' \
+      -H 'accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -d '{ \"name\": \"Nasa\", \"age\": 20, \"nationality\": \"Nigeria\", \"visited_countries\": [\"Ireland\"] }' >> /html/index.html && sleep 5 ;done"
+    name: alpine
+    volumeMounts:
+    - mountPath: /html
+      name: html-volume
+  - image: nginx
+    name: nginxhtml
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: html-volume
+    ports:
+    - containerPort: 80
+
+  volumes:
+  - name: html-volume
+    emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+
+
+---
+
