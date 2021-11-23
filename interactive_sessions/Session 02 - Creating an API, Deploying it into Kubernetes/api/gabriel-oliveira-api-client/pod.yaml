@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-microservice
+spec:
+  containers:
+    - name: my-microservice
+      image: vibpositive/my_first_gabriel_oliveira_microservice:1.0.3
+      ports:
+        - containerPort: 8080
+      resources:
+        requests:
+          cpu: "1"
+          memory: "200Mi"
+        limits:
+          cpu: "1"
+          memory: "200Mi"

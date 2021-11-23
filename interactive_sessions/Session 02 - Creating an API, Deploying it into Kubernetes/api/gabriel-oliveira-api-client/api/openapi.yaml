@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Simple API overview
+  version: 2.0.0
+servers:
+- url: /
+paths:
+  /myinfo:
+    get:
+      operationId: listMyInfo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/personDetails'
+        description: Process your info from API
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                MyInfo:
+                  value:
+                    your_name: Your Name
+                    your_age: 22
+                    your_age_in_months: 264 Months
+                    your_nationality: Geek
+                    countries_you_visited:
+                    - Japan
+                    - Australia
+                ExtraTerrestrialInfo:
+                  value:
+                    your_name: Aayala
+                    your_age: 4827
+                    your_age_in_months: 57.924 Months
+                    your_nationality: Venusian
+                    countries_you_visited:
+                    - USA, Earth
+          description: 200 response
+      summary: List My Info
+      x-eov-operation-handler: controllers/DefaultController
+components:
+  schemas:
+    personDetails:
+      description: Your personal info
+      properties:
+        name:
+          description: Your First and Last name
+          type: string
+        age:
+          description: Your Age
+          type: integer
+        nationality:
+          description: Your Nationality
+          type: string
+        visited_countries:
+          description: List of Countries you have visited
+          items:
+            type: string
+          type: array
+      type: object
